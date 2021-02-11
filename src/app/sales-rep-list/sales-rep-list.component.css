@@ -1,0 +1,42 @@
+.wrapper{
+    background-color: rgb(156, 155, 155);
+    padding: 5px;
+}
+.head-wrapper{
+  display: flex;
+  justify-content: space-between;
+  background: #A0C5E8;
+  padding: 10px;
+  table-layout: fixed;
+  padding: 5px;
+}
+
+.head-element{
+    padding: 10px;
+}
+
+#no-of-rows
+{
+    margin-left: 5px;
+}
+
+.sales-reps-table{
+    width: 100%;
+    background-color: honeydew;
+}
+
+th{
+    background-color: rgb(231, 143, 110);
+    padding: 2px;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+#delete-button{
+    margin-left: 20px;
+
+}

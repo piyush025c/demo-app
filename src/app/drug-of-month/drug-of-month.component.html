@@ -1,0 +1,38 @@
+<div class="wrapper">
+
+    <h2>Drug of the Month</h2>
+
+    <div class="head-wrapper">
+        <span class="head-element">
+            <label for="city-selected">Select City</label>
+
+                <select name="city-selected" id="city-selected">
+                <option value="City 1">City 1</option>
+                <option value="City 2">City 2</option>
+                <option value="City 3">City 3</option>
+                </select>
+        </span>
+    </div>
+
+    <div class="drug-of-month">
+
+        <table class="drug-of-month-table">
+            <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Total Sale</th>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let drug of drugs">
+                <tr>
+                    <td>{{drug.name}}</td>
+                    <td>{{drug.total | currency}}</td>
+           
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,79 @@
+
+<div class="wrapper">
+
+    <h2>Sales Representative List</h2>
+
+    
+        <div class="head-wrapper">
+
+           <span class="head-element"> 
+               <input type="search" placeholder="Search"/>
+               <button type="button">Search</button>
+            </span>
+
+            <span class="head-element">
+                <button type="button">Upload historical data</button>
+            </span>
+
+            <span class="head-element">
+                <label for="no-of-rows">Display Records</label>
+
+                <select name="no-of-rows" id="no-of-rows">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                </select>
+
+            </span>
+
+            <span class="head-element">
+                <button type="button">Create new</button>
+            </span>
+        </div>
+
+        <div class="sales-reps">
+
+            <table class="sales-reps-table">
+                <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Name</th>
+                      <th>Country</th>
+                      <th>City</th>
+                      <th>Zipcode</th>
+                      <th>Gender</th>
+                      <th></th>
+                    </tr>
+                </thead>
+
+                <tbody *ngFor="let rep of salesReps">
+                    <tr>
+                        <td>{{rep.id}}</td>
+                        <td>{{rep.name}}</td>
+                        <td>{{rep.country}}</td>
+                        <td>{{rep.city}}</td>
+                        <td>{{rep.zipcode}}</td>
+                        <td>{{rep.gender}}</td>
+                        <td>
+
+                            <div>
+                                <span>
+                                    <button type="button" id='edit-button'>Edit</button>
+                                    <button type="button" id="delete-button">Delete</button>
+                                </span>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    
+</div>
+
+
+
