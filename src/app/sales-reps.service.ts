@@ -14,9 +14,9 @@ export class SalesRepsService {
 
   constructor( private http: HttpClient) { }
 
-  getSalesReps(offset,limit):Observable <SalesRep[]>
+  getSalesReps():Observable <SalesRep[]>
   {
-      return this.http.get<SalesRep[]>(`${this.baseUrl}all?offset=${offset}&limit=${limit}`);
+      return this.http.get<SalesRep[]>(`${this.baseUrl}all`);
   }
 
   deleteSalesRep(id: number): Observable<any> {
@@ -35,6 +35,11 @@ export class SalesRepsService {
   {
 
     return this.http.put(`${this.baseUrl}update`,rep);
+  }
+
+  searchReps(pattern:string):Observable <SalesRep[]>
+  {
+    return this.http.get<SalesRep[]>(`${this.baseUrl}search?prefix=${pattern}`);
   }
 
 }

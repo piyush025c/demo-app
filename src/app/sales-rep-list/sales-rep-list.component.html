@@ -7,8 +7,8 @@
         <div class="head-wrapper">
 
            <span class="head-element"> 
-               <input type="search" placeholder="Search"/>
-               <button type="button">Search</button>
+               <input type="search" placeholder="Search" #pattern/>
+               <button type="button" (click)="getSearchReps(pattern.value)">Search</button>
             </span>
 
             <span class="head-element">
@@ -47,7 +47,7 @@
                     </tr>
                 </thead>
 
-                <tbody *ngFor="let rep of salesReps">
+                <tbody *ngFor="let rep of salesReps | paginate:{itemsPerPage:limit,currentPage:curPage}">
                     <tr>
                         <td>{{rep.salesRepId}}</td>
                         <td>{{rep.salesRepName}}</td>
@@ -69,6 +69,9 @@
                 </tbody>
 
             </table>
+            <div class="pagination-controls">
+                <pagination-controls (pageChange)="curPage=$event"></pagination-controls>
+            </div>
 
         </div>
 

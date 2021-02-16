@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SalesRep } from '../sales-rep'
 import { SalesRepsService } from '../sales-reps.service';
 import { Router } from '@angular/router';
+import {NgxPaginationModule } from 'ngx-pagination'
 
 
 @Component({
@@ -14,12 +15,36 @@ export class SalesRepListComponent implements OnInit {
   salesReps:SalesRep[];
   offset=0;
   limit=5;
+  curPage=1;
 
   constructor(private salesRepsService: SalesRepsService, private router: Router) { }
 
   ngOnInit(): void {
 
-    this.getSalesReps(this.offset,this.limit);
+    this.getSalesReps();
+  }
+
+  getSearchReps(pattern:string)
+  {
+      console.log("The pattern is "+pattern);
+
+      if(pattern=='')
+      this.getSalesReps();
+
+      else if(pattern.length<3)
+      {
+        window.alert("The Search pattern length should be at least 3 charecters..!");
+      }
+
+      else{
+
+        this.salesRepsService.searchReps(pattern).subscribe(
+          data=>{
+            console.log("Search works!!");
+            this.salesReps=data;
+          }
+        )
+      }
   }
 
   CreateSalesRep()
@@ -27,9 +52,9 @@ export class SalesRepListComponent implements OnInit {
     this.router.navigate(['create']);
   }
 
-  getSalesReps(offset,limit)
+  getSalesReps()
   {
-    this.salesRepsService.getSalesReps(offset,limit).subscribe(data => {
+    this.salesRepsService.getSalesReps().subscribe(data => {
       
       console.log(" Sales Rep list Working..");
       this.salesReps=data
@@ -40,14 +65,14 @@ export class SalesRepListComponent implements OnInit {
   {
       this.limit=limit;
       // Calculate and Set Offset later.
-      this.getSalesReps(this.offset,this.limit);
+      this.getSalesReps();
       
   }
 
   deleteSalesRep(id: number)
   {
     this.salesRepsService.deleteSalesRep(id).subscribe(
-      (data)=>this.getSalesReps(this.offset,this.limit)
+      (data)=>this.getSalesReps()
       );
   }
 
