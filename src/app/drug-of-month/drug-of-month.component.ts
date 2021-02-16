@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DRUGOFMONTH} from '../mock-drugs-of-month'
+import { DrugsOfMonthService } from '../drugs-of-month.service'
+import {DrugOfMonth} from '../drug-of-month-details'
 
 @Component({
   selector: 'app-drug-of-month',
@@ -8,11 +9,30 @@ import {DRUGOFMONTH} from '../mock-drugs-of-month'
 })
 export class DrugOfMonthComponent implements OnInit {
 
-  drugs=DRUGOFMONTH;
+  drugs:DrugOfMonth[]
+  city="Kochi";
 
-  constructor() { }
+  constructor(private drugsOfMonthService: DrugsOfMonthService) { }
 
   ngOnInit(): void {
+
+    this.getDrugs();
+  }
+
+  getDrugs(){
+
+    this.drugsOfMonthService.getDrugs(this.city).subscribe(data=>
+      {
+        console.log("Drug of the Month Working");
+        this.drugs=data;
+      })
+  }
+
+  setCity(city:string)
+  {
+    console.log("City selected: "+city);
+    this.city=city;
+    this.getDrugs();
   }
 
 }

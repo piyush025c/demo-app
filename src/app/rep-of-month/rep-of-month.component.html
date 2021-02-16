@@ -6,26 +6,26 @@
         <span class="head-element">
             <label for="month-selected">Select Month</label>
 
-                <select name="month-selected" id="month-selected">
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
+                <select name="month-selected" #month (change)="setMonth(month.value)" id="month-selected">
+                <option value=1>January</option>
+                <option value=2>February</option>
+                <option value=3>March</option>
+                <option value=4>April</option>
+                <option value=5>May</option>
+                <option value=6>June</option>
+                <option value=7>July</option>
+                <option value=8>August</option>
+                <option value=9>September</option>
+                <option value=10>October</option>
+                <option value=11>November</option>
+                <option value=12>December</option>
                 </select>
         </span>
 
         <span class="head-element"> 
             <label for="product-selected">Select Product</label>
 
-                <select name="product-selected" id="product-selected">
+                <select name="product-selected" #product (change)="setProduct(product.value)" id="product-selected">
                 <option value="A">Product A</option>
                 <option value="B">Product B</option>
                 <option value="C">Product C</option>
@@ -47,9 +47,9 @@
 
             <tbody *ngFor="let rep of reps">
                 <tr>
-                    <td>{{rep.id}}</td>
-                    <td>{{rep.name}}</td>
-                    <td>{{rep.total | currency}}</td>
+                    <td>{{rep.salesRepId}}</td>
+                    <td>{{rep.salesRepName}}</td>
+                    <td>{{rep.monthlyTotal | currency}}</td>
            
                 </tr>
             </tbody>

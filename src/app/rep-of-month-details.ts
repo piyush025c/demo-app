@@ -1,5 +1,5 @@
 export interface RepOfMonth{
-    id:number;
-    name:string;
-    total:number;
+    salesRepId:number;
+    salesRepName:string;
+    monthlyTotal:number;
 }

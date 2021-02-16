@@ -1,4 +1,4 @@
 export interface DrugOfMonth{
-    name:string;
-    total:number;
+    product:string;
+    totalByCityForCurMonth:number;
 }

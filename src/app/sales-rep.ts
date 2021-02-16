@@ -1,10 +1,10 @@
 export interface SalesRep
 {
-    id:number;
-    name:string;
+    salesRepId:number;
+    salesRepName:string;
     country:string;
-    city:string;
-    zipcode:number;
+    city: string;
+    pincode:number;
     gender:string;
-
+        
 }

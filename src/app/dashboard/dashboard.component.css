@@ -1,0 +1,12 @@
+.sales-rep-list{
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.side-wrapper{
+    margin-left: 7px;
+    float: right;
+    width: 34.5%;
+}
+
